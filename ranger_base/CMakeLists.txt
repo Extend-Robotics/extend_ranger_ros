@@ -213,3 +213,14 @@ target_link_libraries(ranger_base_node ranger_messenger ascent ${catkin_LIBRARIE
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+
+install(DIRECTORY include/${PROJECT_NAME}/ DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
+install(DIRECTORY src DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+install(TARGETS ranger_base_node ranger_messenger
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+
+
