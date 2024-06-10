@@ -19,11 +19,11 @@ find_package(catkin REQUIRED COMPONENTS
   tf2
   tf2_ros
   nav_msgs
-#  async_port
+  #async_port
 )
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS system)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
@@ -114,9 +114,9 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-#  LIBRARIES ranger_base
-#  CATKIN_DEPENDS controller_manager geometry_msgs ranger_msgs roscpp roslaunch sensor_msgs topic_tools ugv_sdk
-#  DEPENDS system_lib
+  LIBRARIES ranger_base
+  #CATKIN_DEPENDS controller_manager geometry_msgs ranger_msgs roscpp roslaunch sensor_msgs topic_tools ugv_sdk
+  #DEPENDS system_lib
 )
 
 ###########
@@ -131,6 +131,8 @@ include_directories(
   ${EIGEN3_INCLUDE_DIR}
 )
 
+#target_compile_definitions(${PROJECT_NAME} PUBLIC ASIO_ENABLE_OLD_SERVICES)
+
 add_library(ascent INTERFACE)
 target_include_directories(ascent INTERFACE
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -143,6 +145,7 @@ add_dependencies(ranger_messenger ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_E
 add_executable(ranger_base_node src/ranger_base_node.cpp)
 target_link_libraries(ranger_base_node ranger_messenger ascent ${catkin_LIBRARIES})
 
+#target_compile_definitions(${PROJECT_NAME} PUBLIC ASIO_ENABLE_OLD_SERVICES)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
