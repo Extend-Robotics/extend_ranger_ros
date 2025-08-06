@@ -145,7 +145,8 @@ add_dependencies(ranger_messenger ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_E
 add_executable(ranger_base_node src/ranger_base_node.cpp)
 target_link_libraries(ranger_base_node ranger_messenger ascent ${catkin_LIBRARIES})
 
-#target_compile_definitions(${PROJECT_NAME} PUBLIC ASIO_ENABLE_OLD_SERVICES)
+target_compile_definitions(ranger_base_node PUBLIC ASIO_ENABLE_OLD_SERVICES)
+target_compile_definitions(ranger_messenger PUBLIC ASIO_ENABLE_OLD_SERVICES)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
