@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<robot name="ranger_mini_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find ranger_mini_v2)/urdf/ranger_mini_macro.xacro"/>
+  <xacro:ranger_mini_v2 prefix="mobile_base_" attach_to_world="no"/>
+
+</robot>

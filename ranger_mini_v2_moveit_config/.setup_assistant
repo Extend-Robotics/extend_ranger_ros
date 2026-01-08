@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ranger_mini_v2
+    relative_path: urdf/ranger_mini.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ranger_mini_v2.srdf
+  CONFIG:
+    author_name: Extend Robotics Support
+    author_email: support@extendrobotics.com
+    generated_timestamp: 1760614967
