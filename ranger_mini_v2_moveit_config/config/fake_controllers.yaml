@@ -1,0 +1,11 @@
+controller_list:
+  - name: fake_steer_wheels_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - steer_fr_lt
+      - steer_fr_rt
+      - steer_rr_lt
+      - steer_rr_rt
+initial:  # Define initial robot poses per group
+  - group: steer_wheels
+    pose: steer_home

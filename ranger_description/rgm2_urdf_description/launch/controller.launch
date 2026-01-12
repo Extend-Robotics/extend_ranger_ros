@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find rgm2_urdf_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="rgm2_urdf" args="steer_fr_rt_position_controller steer_fr_lt_position_controller steer_rr_rt_position_controller steer_rr_lt_position_controller wheel_rr_rt_position_controller wheel_rr_lt_position_controller wheel_fr_rt_position_controller wheel_fr_lt_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/rgm2_urdf/joint_states"/>
+</node>
+
+</launch>
