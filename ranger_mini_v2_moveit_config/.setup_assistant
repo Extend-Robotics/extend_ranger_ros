@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: rgm2_urdf_description
+    relative_path: urdf/rgm2_urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/rgm2_urdf.srdf
+  CONFIG:
+    author_name: Extend Robotics Support
+    author_email: support@extendrobotics.com
+    generated_timestamp: 1768235940

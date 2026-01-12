@@ -1,0 +1,39 @@
+rgm2_urdf_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  steer_fr_rt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: steer_fr_rt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  steer_fr_lt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: steer_fr_lt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  steer_rr_rt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: steer_rr_rt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  steer_rr_lt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: steer_rr_lt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wheel_rr_rt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wheel_rr_rt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wheel_rr_lt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wheel_rr_lt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wheel_fr_rt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wheel_fr_rt
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wheel_fr_lt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wheel_fr_lt
+    pid: {p: 100.0, i: 0.01, d: 10.0}

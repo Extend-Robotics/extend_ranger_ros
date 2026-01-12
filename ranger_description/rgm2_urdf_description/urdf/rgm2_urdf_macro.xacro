@@ -1,0 +1,296 @@
+<?xml version="1.0" ?>
+<robot name="rgm2_urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="rgm2_urdf" params="prefix:='' attach_to_world:='no'">
+
+<xacro:include filename="$(find rgm2_urdf_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find rgm2_urdf_description)/urdf/rgm2_urdf.trans" />
+<xacro:include filename="$(find rgm2_urdf_description)/urdf/rgm2_urdf.gazebo" />
+
+<xacro:property name="base_link_name" value="${prefix}base_link" />
+
+<xacro:if value="${attach_to_world == 'yes'}">
+  <link name="world_link"/>
+  <joint name="world_frame" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world_link"/>
+    <child link="${base_link_name}"/>
+  </joint>
+</xacro:if>
+
+<link name="${prefix}base_link">
+  <inertial>
+    <origin xyz="8.49179958162807e-18 -0.007999999999999981 9.046911093940667e-18" rpy="0 0 0"/>
+    <mass value="0.9864600932271947"/>
+    <inertia ixx="0.000638" iyy="0.001233" izz="0.000638" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="chassis_link_1">
+  <inertial>
+    <origin xyz="-0.00015663448702741786 -0.07998648635682189 0.0031872560228292856" rpy="0 0 0"/>
+    <mass value="348.1312624987616"/>
+    <inertia ixx="7.975673" iyy="16.436851" izz="10.964659" ixy="0.00158" iyz="0.042881" ixz="-0.001227"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.016 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/chassis_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.016 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/chassis_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="suspension_fr_rt_1">
+  <inertial>
+    <origin xyz="0.014640231907272927 -0.06371871944049602 0.058574419175568174" rpy="0 0 0"/>
+    <mass value="1.9382603522517055"/>
+    <inertia ixx="0.00707" iyy="0.002866" izz="0.006857" ixy="-0.000685" iyz="0.001414" ixz="-7.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.247 0.11 0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_fr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.247 0.11 0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_fr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="suspension_fr_lt_1">
+  <inertial>
+    <origin xyz="0.011743499009803926 -0.06383574689038228 -0.059193546188179694" rpy="0 0 0"/>
+    <mass value="1.9407871447725409"/>
+    <inertia ixx="0.007097" iyy="0.002873" izz="0.006878" ixy="-0.000765" iyz="-0.001378" ixz="6.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.247 0.11 -0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_fr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.247 0.11 -0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_fr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="suspension_rr_rt_1">
+  <inertial>
+    <origin xyz="-0.014396113207629069 -0.06383596858460293 0.058604962383488626" rpy="0 0 0"/>
+    <mass value="1.9408097705055511"/>
+    <inertia ixx="0.007091" iyy="0.002873" izz="0.006885" ixy="0.000702" iyz="0.001411" ixz="7.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.247 0.11 0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_rr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.247 0.11 0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_rr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="suspension_rr_lt_1">
+  <inertial>
+    <origin xyz="-0.014950820054962788 -0.06370686401594124 -0.058494158461860166" rpy="0 0 0"/>
+    <mass value="1.937961478086929"/>
+    <inertia ixx="0.007067" iyy="0.002866" izz="0.006856" ixy="0.000678" iyz="-0.001417" ixz="-7.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.247 0.11 -0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_rr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.247 0.11 -0.182" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/suspension_rr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rr_rt_1">
+  <inertial>
+    <origin xyz="0.00029638891807975964 6.126400893258221e-07 -0.07517832535710992" rpy="0 0 0"/>
+    <mass value="17.88788451495294"/>
+    <inertia ixx="0.04995" iyy="0.049949" izz="0.08215" ixy="-0.0" iyz="0.0" ixz="-0.000125"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.244771 0.239803 0.110008" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_rr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.244771 0.239803 0.110008" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_rr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rr_lt_1">
+  <inertial>
+    <origin xyz="0.0009105506641918226 -1.6987539985802158e-08 0.07517316726994643" rpy="0 0 0"/>
+    <mass value="17.887704295106957"/>
+    <inertia ixx="0.049953" iyy="0.049948" izz="0.082144" ixy="-0.0" iyz="-0.0" ixz="0.000388"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.244183 0.239803 -0.110029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_rr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.244183 0.239803 -0.110029" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_rr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fr_rt_1">
+  <inertial>
+    <origin xyz="-0.0005136307447963784 -2.4700365872099006e-07 -0.07517690568577137" rpy="0 0 0"/>
+    <mass value="17.88788857038676"/>
+    <inertia ixx="0.049951" iyy="0.049949" izz="0.082149" ixy="-0.0" iyz="0.0" ixz="0.000218"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.244563 0.239803 0.110015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_fr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.244563 0.239803 0.110015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_fr_rt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fr_lt_1">
+  <inertial>
+    <origin xyz="0.00308931969338197 2.1448699738524368e-07 0.07511523670676262" rpy="0 0 0"/>
+    <mass value="17.88770315589408"/>
+    <inertia ixx="0.050003" iyy="0.049948" izz="0.082094" ixy="-0.0" iyz="-0.0" ixz="0.001324"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.248015 0.239803 -0.109981" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_fr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="${prefix}silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.248015 0.239803 -0.109981" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rgm2_urdf_description/meshes/wheel_fr_lt_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base_atch_point" type="fixed">
+  <origin xyz="0.0 -0.016 0.0" rpy="0 0 0"/>
+  <parent link="${prefix}base_link"/>
+  <child link="chassis_link_1"/>
+</joint>
+
+<joint name="steer_fr_rt" type="revolute">
+  <origin xyz="-0.247 -0.094 -0.182" rpy="0 0 0"/>
+  <parent link="chassis_link_1"/>
+  <child link="suspension_fr_rt_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="steer_fr_lt" type="revolute">
+  <origin xyz="-0.247 -0.094 0.182" rpy="0 0 0"/>
+  <parent link="chassis_link_1"/>
+  <child link="suspension_fr_lt_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="steer_rr_rt" type="revolute">
+  <origin xyz="0.247 -0.094 -0.182" rpy="0 0 0"/>
+  <parent link="chassis_link_1"/>
+  <child link="suspension_rr_rt_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="steer_rr_lt" type="revolute">
+  <origin xyz="0.247 -0.094 0.182" rpy="0 0 0"/>
+  <parent link="chassis_link_1"/>
+  <child link="suspension_rr_lt_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="wheel_rr_rt" type="continuous">
+  <origin xyz="-0.002229 -0.129803 0.071992" rpy="0 0 0"/>
+  <parent link="suspension_rr_rt_1"/>
+  <child link="wheel_rr_rt_1"/>
+  <axis xyz="0.003967 -0.0 -0.999992"/>
+</joint>
+
+<joint name="wheel_rr_lt" type="continuous">
+  <origin xyz="-0.002817 -0.129803 -0.071971" rpy="0 0 0"/>
+  <parent link="suspension_rr_lt_1"/>
+  <child link="wheel_rr_lt_1"/>
+  <axis xyz="-0.012145 0.0 -0.999926"/>
+</joint>
+
+<joint name="wheel_fr_rt" type="continuous">
+  <origin xyz="0.002437 -0.129803 0.071985" rpy="0 0 0"/>
+  <parent link="suspension_fr_rt_1"/>
+  <child link="wheel_fr_rt_1"/>
+  <axis xyz="-0.006858 -0.0 -0.999976"/>
+</joint>
+
+<joint name="wheel_fr_lt" type="continuous">
+  <origin xyz="-0.001015 -0.129803 -0.072019" rpy="0 0 0"/>
+  <parent link="suspension_fr_lt_1"/>
+  <child link="wheel_fr_lt_1"/>
+  <axis xyz="-0.041054 0.0 -0.999157"/>
+</joint>
+</xacro:macro>
+</robot>
