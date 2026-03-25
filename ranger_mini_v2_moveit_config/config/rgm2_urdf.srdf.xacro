@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="rgm2_urdf">
+    <xacro:arg name="prefix" default="mobile_base_" />
+    <group name="steer_wheels">
+        <joint name="steer_fr_lt"/>
+        <joint name="steer_fr_rt"/>
+        <joint name="steer_rr_lt"/>
+        <joint name="steer_rr_rt"/>
+    </group>
+    <group_state name="steer_home" group="steer_wheels">
+        <joint name="steer_fr_lt" value="0"/>
+        <joint name="steer_fr_rt" value="0"/>
+        <joint name="steer_rr_lt" value="0"/>
+        <joint name="steer_rr_rt" value="0"/>
+    </group_state>
+    <disable_collisions link1="chassis_link_1" link2="$(arg prefix)base_link" reason="Adjacent"/>
+    <disable_collisions link1="chassis_link_1" link2="suspension_fr_lt_1" reason="Adjacent"/>
+    <disable_collisions link1="chassis_link_1" link2="suspension_fr_rt_1" reason="Adjacent"/>
+    <disable_collisions link1="chassis_link_1" link2="suspension_rr_lt_1" reason="Adjacent"/>
+    <disable_collisions link1="chassis_link_1" link2="suspension_rr_rt_1" reason="Adjacent"/>
+    <disable_collisions link1="chassis_link_1" link2="wheel_fr_lt_1" reason="Never"/>
+    <disable_collisions link1="chassis_link_1" link2="wheel_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="chassis_link_1" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="chassis_link_1" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="suspension_fr_lt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="suspension_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="suspension_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="suspension_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="wheel_fr_lt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="wheel_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="$(arg prefix)base_link" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="suspension_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="suspension_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="suspension_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="wheel_fr_lt_1" reason="Adjacent"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="wheel_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_lt_1" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_rt_1" link2="suspension_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_rt_1" link2="suspension_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_rt_1" link2="wheel_fr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_rt_1" link2="wheel_fr_rt_1" reason="Adjacent"/>
+    <disable_collisions link1="suspension_fr_rt_1" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_fr_rt_1" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_lt_1" link2="suspension_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_lt_1" link2="wheel_fr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_lt_1" link2="wheel_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_lt_1" link2="wheel_rr_lt_1" reason="Adjacent"/>
+    <disable_collisions link1="suspension_rr_lt_1" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_rt_1" link2="wheel_fr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_rt_1" link2="wheel_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_rt_1" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="suspension_rr_rt_1" link2="wheel_rr_rt_1" reason="Adjacent"/>
+    <disable_collisions link1="wheel_fr_lt_1" link2="wheel_fr_rt_1" reason="Never"/>
+    <disable_collisions link1="wheel_fr_lt_1" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="wheel_fr_lt_1" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="wheel_fr_rt_1" link2="wheel_rr_lt_1" reason="Never"/>
+    <disable_collisions link1="wheel_fr_rt_1" link2="wheel_rr_rt_1" reason="Never"/>
+    <disable_collisions link1="wheel_rr_lt_1" link2="wheel_rr_rt_1" reason="Never"/>
+</robot>
