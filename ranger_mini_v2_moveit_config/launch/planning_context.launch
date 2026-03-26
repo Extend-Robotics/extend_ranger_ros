@@ -9,7 +9,7 @@
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '$(find rgm2_urdf_description)/urdf/rgm2_urdf.xacro'"/>
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" textfile="$(find ranger_mini_v2_moveit_config)/config/rgm2_urdf.srdf" />
+  <param name="$(arg robot_description)_semantic" command="xacro '$(find ranger_mini_v2_moveit_config)/config/rgm2_urdf.srdf.xacro'" />
 
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
