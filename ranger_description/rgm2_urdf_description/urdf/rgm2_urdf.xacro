@@ -2,6 +2,6 @@
 <robot name="rgm2_urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find rgm2_urdf_description)/urdf/rgm2_urdf_macro.xacro"/>
-  <xacro:rgm2_urdf prefix="mobile_base_" attach_to_world="no"/>
+  <xacro:rgm2_urdf prefix="" attach_to_world="no"/>
 
 </robot>
