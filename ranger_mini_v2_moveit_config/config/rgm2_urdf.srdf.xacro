@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="rgm2_urdf">
-    <xacro:arg name="prefix" default="mobile_base_" />
+    <xacro:arg name="prefix" default="" />
     <group name="steer_wheels">
         <joint name="steer_fr_lt"/>
         <joint name="steer_fr_rt"/>
